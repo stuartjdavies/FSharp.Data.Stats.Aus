@@ -1,0 +1,13 @@
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\FSharp.Data.Stats.Aus.TypeProviders.XML
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\FSharp.Data.Stats.Aus.TypeProviders.dll
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\FSharp.Data.Stats.Aus.TypeProviders.pdb
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\FSharp.Core.dll
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\FSharp.Core.xml
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\obj\Debug\FSharp.Data.Stats.Aus.TypeProviders.dll
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\obj\Debug\FSharp.Data.Stats.Aus.TypeProviders.pdb
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\Excel.dll
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\ExcelProvider.dll
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\Excel.pdb
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\ExcelProvider.pdb
+C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\ExcelProvider.xml

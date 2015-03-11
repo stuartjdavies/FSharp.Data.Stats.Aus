@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Data.Stats.Aus.TypeProviders", "FSharp.Data.Stats.Aus.TypeProviders\FSharp.Data.Stats.Aus.TypeProviders.fsproj", "{D26F0566-CA74-47CD-AC9C-CE74C509546A}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Data.Stats.Aus.Experiments", "FSharp.Data.Stats.Aus.Experiments\FSharp.Data.Stats.Aus.Experiments.fsproj", "{4D539F64-34E8-451F-B2A9-977320FB4EBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D26F0566-CA74-47CD-AC9C-CE74C509546A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D26F0566-CA74-47CD-AC9C-CE74C509546A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D26F0566-CA74-47CD-AC9C-CE74C509546A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D26F0566-CA74-47CD-AC9C-CE74C509546A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D539F64-34E8-451F-B2A9-977320FB4EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D539F64-34E8-451F-B2A9-977320FB4EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D539F64-34E8-451F-B2A9-977320FB4EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D539F64-34E8-451F-B2A9-977320FB4EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Products>
+    <Product>
+        <Name>Soft Duvet Set</Name>
+        <Descpription>Seriously soft, gets softer with each wash. Made of 100% cotton. Signature 2" flange.</Descpription>
+        <Price>$139.00</Price>
+        <URL>http://www.google.com/</URL>
+    </Product>
+    <Product>
+        <Name>Stripe Sheet Set</Name>
+        <Descpription>he single pick construction and washing process produces a fabric that gets softer with each wash. Features embroidered stripes</Descpription>
+        <Price>$95.00</Price>
+        <URL>http://www.google.com/</URL>
+    </Product>
+    <Product>
+        <Name>Linen Decorative Pillow</Name>
+        <Descpription>100% linen square pillow. Polyester fill insert included.</Descpription>
+        <Price>$35.00</Price>
+        <URL>http://www.google.com/</URL>
+    </Product>
+    <Product>
+        <Name>Linen Decorative Pillow</Name>
+        <Descpription>100% linen square pillow. Polyester fill insert included.</Descpription>
+        <Price>AAAA</Price>
+        <URL>http://www.google.com/</URL>
+    </Product>
+</Products>
+	  
