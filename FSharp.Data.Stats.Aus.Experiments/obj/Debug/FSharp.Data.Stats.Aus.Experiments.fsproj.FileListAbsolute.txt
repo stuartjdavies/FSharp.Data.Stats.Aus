@@ -21,3 +21,25 @@ C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSha
 C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.dll
 C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.pdb
 C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FsLab.Journal.exe.config
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FsLab.Journal.exe
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FsLab.Journal.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Excel.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ExcelProvider.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Compiler.Interactive.Settings.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Data.Stats.Aus.TypeProviders.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Google.DataTable.Net.Wrapper.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ICSharpCode.SharpZipLib.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Newtonsoft.Json.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Data.Stats.Aus.TypeProviders.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Data.Stats.Aus.TypeProviders.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Excel.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ExcelProvider.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ExcelProvider.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Newtonsoft.Json.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FSharp.Data.Stats.Aus.Experiments.fsprojResolveAssemblyReference.cache
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FsLab.Journal.exe
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FsLab.Journal.pdb
