@@ -37,11 +37,6 @@ let getMonths (yearUrls : (int * string) seq) =
                                                                                                     anchor.InnerText, anchor.GetAttributeValue("href", null).Trim())))                                                                   
                                       |> Seq.concat                            
 
-// Can't figure out why the CsvProvider is not working
-// type PriceAndDemandSchema = CsvProvider<"""./Data/DATA201411_VIC1.csv""">                                                                                                                                 
-// let getPriceAndDemands (urls : string seq) = urls |> Seq.map(fun url -> use wc = new WebClient()
-//                                                                        let csv = wc.DownloadString(url).Trim() 
-//                                                                        PriceAndDemandSchema.Parse(csv).Rows)
 let downloadFileAsString (url : string) = let wc = new WebClient()
                                           wc.DownloadString(url).Trim()
                                           
