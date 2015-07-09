@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="ProvidedTypes.fs" />
     <Compile Include="ABSExcelSchemaProvider.fs" />
+    <Compile Include="RBACsvStatisticsProvider.fs" />
+    <Compile Include="ASXDataProvider.fs" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
