@@ -365,15 +365,12 @@
     <None Include="packages.config" />
     <None Include="AEMO.fsx" />
     <None Include="AusAlcoholConsumption.fsx" />
-    <None Include="ASX.fsx">
-      <SubType>
-      </SubType>
-    </None>
     <None Include="RBAExchangeRates.fsx">
       <SubType>
       </SubType>
     </None>
     <None Include="AusBankStockPrices.fsx" />
+    <None Include="ASX.fsx" />
     <None Include="AusGreenHouseGasEmissions.fsx" />
     <None Include="AusLabourForceStatusBySexTrend.fsx" />
     <None Include="AusLabourUnderUtilByAgeAndSex.fsx" />
