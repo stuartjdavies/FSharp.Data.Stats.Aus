@@ -1,5 +1,7 @@
 ﻿namespace FSharp.Data.Stats.Aus.TypeProviders
 
+#nowarn "0025"
+
 open System
 open System.Reflection
 open Microsoft.FSharp.Core.CompilerServices
@@ -43,6 +45,53 @@ type public RBACsvStatisticsProvider(cfg:TypeProviderConfig) as this =
     let filename = ProvidedStaticParameter("filename", typeof<string>)
        
     do csvTy.DefineStaticParameters([filename], fun tyName [| :? string as filename |] ->
+        let parseInt row i =
+            <@@ 
+                if (%%row:string[]).Length>i 
+                then 
+                    try Some(Int32.Parse((%%row:string[]).[i]))
+                    with 
+                    | _ -> None 
+                else None 
+            @@>
+
+        let parseDecimal row i =
+            <@@ 
+                if (%%row:string[]).Length>i 
+                then 
+                    try Some(Decimal.Parse((%%row:string[]).[i]))
+                    with 
+                    | _ -> None 
+                else
+                    None 
+            @@>
+
+        let parseDateTime row i =
+            <@@ 
+                if (%%row:string[]).Length>i 
+                then 
+                    try Some(DateTime.Parse((%%row:string[]).[i]))
+                    with 
+                    | _ -> None 
+                else None 
+            @@>
+
+        let parseString row i =
+            <@@ 
+                if (%%row:string[]).Length>i 
+                then Some((%%row:string[]).[i])
+                else None 
+            @@>
+
+        let parseSingle row i =
+            <@@ 
+                if (%%row:string[]).Length>i 
+                then 
+                    try Some(Single.Parse((%%row:string[]).[i]))
+                    with 
+                    | _ -> Some(Single.NaN) 
+                else None 
+            @@>
 
         // resolve the filename relative to the resolution folder
         let resolvedFilename = Path.Combine(cfg.ResolutionFolder, filename)
@@ -53,13 +102,24 @@ type public RBACsvStatisticsProvider(cfg:TypeProviderConfig) as this =
         let lines = RBADataHelper.downloadPageAsString(filename).Split('\r')
         let headerIndex = RBADataHelper.findHeaderIndex(lines)
         let headers = RBADataHelper.getHeaders(lines.[1])    
-        
-        headers |> Seq.mapi(fun i h -> let prop = ProvidedProperty(propertyName=h, propertyType=typeof<string>, IsStatic=false,                                                                                   
-                                                                                    GetterCode = (fun [row] -> <@@ (%%row:string[]).[i] @@>))
-                                       prop.AddDefinitionLocation(1, i + 1, filename)
-                                       prop)
-                |> Seq.iter rowTy.AddMember
+                
+        let inferredTypes = Array.append [| typeof<option<DateTime>> |] ([| 1 .. headers.Length - 1 |] |> Array.map(fun item -> typeof<option<Single>>))
+                            |> Array.toSeq
 
+        let getterCode (fieldTy : Type) i =
+            match fieldTy with
+            | x when x = typeof<option<int>> -> fun [row] -> parseInt row i
+            | x when x = typeof<option<decimal>> -> fun [row] -> parseDecimal row i
+            | x when x = typeof<option<Single>> -> fun [row] -> parseSingle row i
+            | x when x = typeof<option<DateTime>> -> fun [row] -> parseDateTime row i
+            | _ -> fun [row] -> parseString row i
+
+        headers 
+        |> Seq.zip inferredTypes
+        |> Seq.mapi 
+            (fun i x -> ProvidedProperty((snd x), (fst x), GetterCode = (getterCode (fst x) i)))
+        |> Seq.iter rowTy.AddMember
+        
             
         let rows = RBADataHelper.getRows(headers.Length - 1, lines.[(headerIndex + 1) ..])
                   

@@ -40,6 +40,6 @@ C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Exp
 C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.pdb
 C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.xml
 C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Newtonsoft.Json.xml
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FSharp.Data.Stats.Aus.Experiments.fsprojResolveAssemblyReference.cache
 C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FsLab.Journal.exe
 C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FsLab.Journal.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FSharp.Data.Stats.Aus.Experiments.fsprojResolveAssemblyReference.cache

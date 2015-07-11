@@ -1,5 +1,7 @@
 ﻿namespace FSharp.Data.Stats.Aus.TypeProviders
 
+#nowarn "0025"
+
 open System
 open System.Reflection
 open Microsoft.FSharp.Core.CompilerServices
