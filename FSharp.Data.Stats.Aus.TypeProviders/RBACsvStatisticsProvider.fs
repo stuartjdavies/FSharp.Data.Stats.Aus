@@ -44,53 +44,17 @@ type public RBACsvStatisticsProvider(cfg:TypeProviderConfig) as this =
     // Parameterize the type by the file to use as a template
     let filename = ProvidedStaticParameter("filename", typeof<string>)
        
-    do csvTy.DefineStaticParameters([filename], fun tyName [| :? string as filename |] ->
-        let parseInt row i =
-            <@@ 
-                if (%%row:string[]).Length>i 
-                then 
-                    try Some(Int32.Parse((%%row:string[]).[i]))
-                    with 
-                    | _ -> None 
-                else None 
-            @@>
-
-        let parseDecimal row i =
-            <@@ 
-                if (%%row:string[]).Length>i 
-                then 
-                    try Some(Decimal.Parse((%%row:string[]).[i]))
-                    with 
-                    | _ -> None 
-                else
-                    None 
-            @@>
-
+    do csvTy.DefineStaticParameters([filename], fun tyName [| :? string as filename |] ->        
         let parseDateTime row i =
             <@@ 
-                if (%%row:string[]).Length>i 
-                then 
-                    try Some(DateTime.Parse((%%row:string[]).[i]))
-                    with 
-                    | _ -> None 
-                else None 
-            @@>
-
-        let parseString row i =
-            <@@ 
-                if (%%row:string[]).Length>i 
-                then Some((%%row:string[]).[i])
-                else None 
+                DateTime.Parse((%%row:string[]).[i])                     
             @@>
 
         let parseSingle row i =
             <@@ 
-                if (%%row:string[]).Length>i 
-                then 
-                    try Some(Single.Parse((%%row:string[]).[i]))
-                    with 
-                    | _ -> Some(Single.NaN) 
-                else None 
+                try Single.Parse((%%row:string[]).[i])
+                with 
+                | _ -> Single.NaN                 
             @@>
 
         // resolve the filename relative to the resolution folder
@@ -102,24 +66,11 @@ type public RBACsvStatisticsProvider(cfg:TypeProviderConfig) as this =
         let lines = RBADataHelper.downloadPageAsString(filename).Split('\r')
         let headerIndex = RBADataHelper.findHeaderIndex(lines)
         let headers = RBADataHelper.getHeaders(lines.[1])    
-                
-        let inferredTypes = Array.append [| typeof<option<DateTime>> |] ([| 1 .. headers.Length - 1 |] |> Array.map(fun item -> typeof<option<Single>>))
-                            |> Array.toSeq
-
-        let getterCode (fieldTy : Type) i =
-            match fieldTy with
-            | x when x = typeof<option<int>> -> fun [row] -> parseInt row i
-            | x when x = typeof<option<decimal>> -> fun [row] -> parseDecimal row i
-            | x when x = typeof<option<Single>> -> fun [row] -> parseSingle row i
-            | x when x = typeof<option<DateTime>> -> fun [row] -> parseDateTime row i
-            | _ -> fun [row] -> parseString row i
-
-        headers 
-        |> Seq.zip inferredTypes
-        |> Seq.mapi 
-            (fun i x -> ProvidedProperty((snd x), (fst x), GetterCode = (getterCode (fst x) i)))
-        |> Seq.iter rowTy.AddMember
-        
+                       
+        rowTy.AddMember(ProvidedProperty(headers.[0], typeof<DateTime>, GetterCode = fun [row] -> parseDateTime row 0))
+       
+        headers.[1..] |> Seq.mapi(fun i h -> ProvidedProperty(h, typeof<Single>, GetterCode = fun [row] -> parseSingle row (i + 1)))
+                      |> Seq.iter rowTy.AddMember
             
         let rows = RBADataHelper.getRows(headers.Length - 1, lines.[(headerIndex + 1) ..])
                   

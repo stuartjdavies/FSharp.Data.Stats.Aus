@@ -23,14 +23,14 @@ let downloadPageAsString(url : string)= (new WebClient()).DownloadString url
 
 let exchangeRates = new RBACsvStatisticsProvider<"""http://www.rba.gov.au/statistics/tables/csv/f11.1-data.csv""">()
 
-[ Chart.Line(exchangeRates.Data |> Seq.map(fun item -> item.``Series ID``.Value, item.``A$1=USD``.Value), Name="USD").WithLegend(Enabled=true) 
-  Chart.Line(exchangeRates.Data |> Seq.map(fun item -> item.``Series ID``.Value, item.``A$1=EUR``.Value), Name="EUR")
-  Chart.Line(exchangeRates.Data |> Seq.map(fun item -> item.``Series ID``.Value, item.``A$1=GBP``.Value), Name="GPS") ] |> Chart.Combine                                        
+[ Chart.Line(exchangeRates.Data |> Seq.map(fun item -> item.``Series ID``, item.``A$1=USD``), Name="USD").WithLegend(Enabled=true) 
+  Chart.Line(exchangeRates.Data |> Seq.map(fun item -> item.``Series ID``, item.``A$1=EUR``), Name="EUR")
+  Chart.Line(exchangeRates.Data |> Seq.map(fun item -> item.``Series ID``, item.``A$1=GBP``), Name="GPS") ] |> Chart.Combine                                        
 
 let commodityPrices = new RBACsvStatisticsProvider<"""http://www.rba.gov.au/statistics/tables/csv/i2-data.csv""">() 
 
-[ Chart.Line(commodityPrices.Data |> Seq.map(fun item -> item.``Series ID``.Value, item.``Commodity prices – A$``.Value), Name="Commodity prices – A$").WithLegend(Enabled=true)   
-  Chart.Line(commodityPrices.Data |> Seq.map(fun item -> item.``Series ID``.Value, item.``Base metals prices – A$``.Value), Name="Base metals prices – A$") ] |> Chart.Combine                                        
+[ Chart.Line(commodityPrices.Data |> Seq.map(fun item -> item.``Series ID``, item.``Commodity prices – A$``), Name="Commodity prices – A$").WithLegend(Enabled=true)   
+  Chart.Line(commodityPrices.Data |> Seq.map(fun item -> item.``Series ID``, item.``Base metals prices – A$``), Name="Base metals prices – A$") ] |> Chart.Combine                                        
 
 // There is a bug.
 //let labourForce = new RBACsvStatisticsProvider<"http://www.rba.gov.au/statistics/tables/csv/h5-data.csv">()
