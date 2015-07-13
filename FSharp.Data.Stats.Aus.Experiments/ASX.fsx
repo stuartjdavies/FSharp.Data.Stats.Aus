@@ -273,29 +273,85 @@ do
 //         - Largest window change
 // 6. Order By Highest close prices.
 // 
-
-let  getFirstRowsForAllCompanies (cs : ASXCompany array) = 
-                cs |> Array.Parallel.mapi (fun i c -> let fileName = sprintf "%s%s.csv" ASX_DATA_DIR c.ASXCode 
-                                                      printfn "Processed %s, %d, %s" c.ASXCode i fileName
-                                                      getFirstLine c.ASXCode fileName) 
-
-
-
-
-// Save as html / upload to aws.
 type ASXSummaryTableItem = {
         ASXCode : String;
         CompanyName : String;
         IndustryGroup : String;
+        // OneDayClosePriceDiff : Single;
+        // FiveDayClosePriceDiff : Single;
+        // OneMonthClosePriceDiff : Single
+        // OneYearClosePriceDiff : Single;
+        // FiveYearClosePriceChange : Single;                 
         LastDate : DateTime; 
         LastOpen : Single; 
         LastHigh : Single; 
         LastLow : Single; 
         LastClose : Single; 
         LastVolume : Single; 
-        LastAdjClose : Single                
+        LastAdjClose : Single;
+        FirstDate : DateTime;
+        FirstOpen : Single;
+        FirstHigh : Single;
+        FirstLow : Single;
+        FirstClose : Single;
+        FirstVolume : Single;
+        FirstAdjClose : Single;
+        MaxCloseDate : DateTime;
+        MaxClose : Single;
+        MinCloseDate : DateTime;
+        MinClose : Single;
+        AsxDetailsUrl : String;  
+        YahooDetailsUrl : String;  
+        HeadOfficeState : String;                    
 }
 
+let getStockHistoryStats (c : ASXCompany) =                                   
+                let fileName = (sprintf "%s%s.csv" ASX_DATA_DIR c.ASXCode)
+                let rows = File.ReadLines(fileName).ToArray().[1..] |> Array.map (fun item -> toStockItem c.ASXCode item)                                                      
+                
+                let firstRow = rows.[0]
+                let lastRow = rows |> Seq.last 
+                let maxClose = rows |> Array.maxBy(fun item -> item.Close)
+                let minClose = rows |> Array.maxBy(fun item -> item.Close)
+
+                let yahooUrl = (sprintf "https://au.finance.yahoo.com/q/pr?s=%s.AX" c.ASXCode)
+                let html = downloadPageAsString yahooUrl
+                let state = match html with
+                            | _ when (html.IndexOf("NSW ", StringComparison.Ordinal) > 1) -> "NSW"
+                            | _ when (html.IndexOf("ACT ", StringComparison.Ordinal) > 1) -> "ACT"
+                            | _ when (html.IndexOf("VIC ", StringComparison.Ordinal) > 1) -> "VIC"
+                            | _ when (html.IndexOf("QLD ", StringComparison.Ordinal) > 1) -> "QLD"
+                            | _ when (html.IndexOf("WA ", StringComparison.Ordinal) > 1) -> "WA"
+                            | _ when (html.IndexOf("NT ", StringComparison.Ordinal) > 1) -> "NT"                                                       
+                            | _ -> "Unknown"
+                
+                printfn "Processed %s" c.ASXCode                                                                                                                                                           
+                { ASXSummaryTableItem.ASXCode = c.ASXCode;
+                                      CompanyName = c.CompanyName;
+                                      IndustryGroup = c.GICSIndustryGroup;
+                                      LastDate = firstRow.Date; 
+                                      LastOpen = firstRow.Open;
+                                      LastHigh = firstRow.High;
+                                      LastLow = firstRow.Low;
+                                      LastClose = firstRow.Close;
+                                      LastVolume = firstRow.Volume;
+                                      LastAdjClose = firstRow.AdjClose;
+                                      FirstDate = lastRow.Date;
+                                      FirstOpen = lastRow.Open;
+                                      FirstHigh = lastRow.High;
+                                      FirstLow = lastRow.Low;
+                                      FirstClose = lastRow.Close;
+                                      FirstVolume = lastRow.Volume;
+                                      FirstAdjClose = lastRow.AdjClose;
+                                      MaxCloseDate = maxClose.Date;
+                                      MaxClose = maxClose.Close;
+                                      MinCloseDate = minClose.Date;
+                                      MinClose = minClose.Close;
+                                      AsxDetailsUrl = (sprintf "http://www.asx.com.au/asx/research/company.do#!/%s/details" c.ASXCode);
+                                      YahooDetailsUrl = yahooUrl; 
+                                      HeadOfficeState = state; }
+                
+                                 
 let writeSummaryTableToExcel (items : ASXSummaryTableItem array) =      
         let app = new ApplicationClass(Visible = true) 
         let workbook = app.Workbooks.Add(XlWBATemplate.xlWBATWorksheet) 
@@ -303,7 +359,7 @@ let writeSummaryTableToExcel (items : ASXSummaryTableItem array) =
         let worksheet = (workbook.Worksheets.[1] :?> Worksheet)
         worksheet.Name <- "ASX Company Summary"
 
-        items |> Array.iteri(fun i r -> worksheet.Range("A" + (i + 1).ToString(), "J" + (i + 1).ToString()).Value2 <- 
+        items |> Array.iteri(fun i r -> worksheet.Range("A" + (i + 1).ToString(), "X" + (i + 1).ToString()).Value2 <- 
                                         [| r.ASXCode; 
                                            r.CompanyName;
                                            r.IndustryGroup;
@@ -313,35 +369,37 @@ let writeSummaryTableToExcel (items : ASXSummaryTableItem array) =
                                            r.LastLow.ToString();
                                            r.LastClose.ToString();
                                            r.LastVolume.ToString();
-                                           r.LastAdjClose.ToString(); |] )
+                                           r.LastAdjClose.ToString(); 
+                                           r.FirstDate.ToShortDateString();
+                                           r.FirstOpen.ToString();
+                                           r.FirstHigh.ToString() ;
+                                           r.FirstLow.ToString();
+                                           r.FirstClose.ToString();
+                                           r.FirstVolume.ToString();
+                                           r.FirstAdjClose.ToString();
+                                           r.MaxCloseDate.ToShortDateString();
+                                           r.MaxClose.ToString();
+                                           r.MinCloseDate.ToShortDateString();
+                                           r.MinClose.ToString();
+                                           r.AsxDetailsUrl;
+                                           r.YahooDetailsUrl;
+                                           r.HeadOfficeState |] )
 
-        let columnText = [| "ASXCode"; "CompanyName"; "IndustryGroup"; "Last Date";
-                            "Last Open"; "LastHigh"; "Last Low"; "Last Close"; "LastVolume"; "Last AdjClose"; |]
+        let columnText = [| "ASXCode"; "Company Name"; "Industry Group"; "Last Date";
+                            "Last Open"; "Last High"; "Last Low"; "Last Close"; "Last Volume"; "Last Adj Close"; 
+                            "First Date"; "First Open"; "First High"; "First Low"; "First Close"; 
+                            "First Volumn";  "First AdjClose"; "Max Close Date"; "Max Close"; "Min Close Date"; "Min Close"; "Asx Details Url"; "Yahoo Details Url"; "Head Office State"
+                             |]
 
-        let range = worksheet.get_Range(sprintf "A1:J%d" (items.Length + 1))
+        let range = worksheet.get_Range(sprintf "A1:X%d" (items.Length + 1))
         worksheet.ListObjects.AddEx(XlListObjectSourceType.xlSrcRange,range, Type.Missing,XlYesNoGuess.xlGuess, Type.Missing, Type.Missing).Name <- "ASXSummary"
         worksheet.ListObjects.[  "ASXSummary" ].TableStyle <- "TableStyleMedium2";
-        worksheet.Range("A1", "J1").Value2 <- columnText
-        range.Columns.AutoFit()
-
-
-        
-// do         
-let firstRowsForAllAsxCompanies = ausCompanies |> getFirstRowsForAllCompanies  
-          
-let table = ausCompanies |> Array.map(fun item -> let firstRow = firstRowsForAllAsxCompanies |> Array.find(fun r -> item.ASXCode = r.ASXCode) 
-                                                  { ASXSummaryTableItem.ASXCode = item.ASXCode;
-                                                                        CompanyName = item.CompanyName;
-                                                                        IndustryGroup = item.GICSIndustryGroup;
-                                                                        LastDate = firstRow.Date; 
-                                                                        LastOpen = firstRow.Open;
-                                                                        LastHigh = firstRow.High;
-                                                                        LastLow = firstRow.Low;
-                                                                        LastClose = firstRow.Close;
-                                                                        LastVolume = firstRow.Volume;
-                                                                        LastAdjClose = firstRow.AdjClose } )
-                        |> Array.sortBy(fun item -> -item.LastClose)                                                  
+        worksheet.Range("A1", "X1").Value2 <- columnText
+        range.Columns.AutoFit() |> ignore
+                                                                                                                                   
+let table = ausCompanies |> Array.filter(fun item -> File.Exists( sprintf "%s%s.csv" ASX_DATA_DIR item.ASXCode) = true)
+                         |> Array.Parallel.map getStockHistoryStats                                                
+                         |> Array.sortBy(fun item -> -item.LastClose)                                                  
      
      
-table |> writeSummaryTableToExcel |> ignore                                                   
-//     ()
+table |> writeSummaryTableToExcel |> ignore                                                  
