@@ -69,7 +69,7 @@ type public RBACsvStatisticsProvider(cfg:TypeProviderConfig) as this =
                        
         rowTy.AddMember(ProvidedProperty(headers.[0], typeof<DateTime>, GetterCode = fun [row] -> parseDateTime row 0))
        
-        headers.[1..] |> Seq.mapi(fun i h -> ProvidedProperty(h, typeof<Single>, GetterCode = fun [row] -> parseSingle row (i + 1)))
+        headers.[1..] |> Seq.mapi(fun i h -> ProvidedProperty(h, typeof<Single>, GetterCode = fun [row] -> parseSingle row i))
                       |> Seq.iter rowTy.AddMember
             
         let rows = RBADataHelper.getRows(headers.Length - 1, lines.[(headerIndex + 1) ..])

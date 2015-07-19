@@ -1,45 +1,61 @@
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FsLab.Journal.exe.config
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FsLab.Journal.exe
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FsLab.Journal.pdb
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Excel.dll
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ExcelProvider.dll
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Compiler.Interactive.Settings.dll
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Data.Stats.Aus.TypeProviders.dll
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ICSharpCode.SharpZipLib.dll
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Data.Stats.Aus.TypeProviders.pdb
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Data.Stats.Aus.TypeProviders.xml
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Excel.pdb
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ExcelProvider.pdb
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ExcelProvider.xml
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FSharp.Data.Stats.Aus.Experiments.fsprojResolveAssemblyReference.cache
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FsLab.Journal.exe
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FsLab.Journal.pdb
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Google.DataTable.Net.Wrapper.dll
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Newtonsoft.Json.dll
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\XPlot.GoogleCharts.dll
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Newtonsoft.Json.xml
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.dll
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.pdb
-C:\Users\stuart\Documents\Visual Studio 2013\Projects\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.xml
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FsLab.Journal.exe.config
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FsLab.Journal.exe
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FsLab.Journal.pdb
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Excel.dll
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ExcelProvider.dll
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Compiler.Interactive.Settings.dll
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Data.Stats.Aus.TypeProviders.dll
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Google.DataTable.Net.Wrapper.dll
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.dll
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ICSharpCode.SharpZipLib.dll
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Newtonsoft.Json.dll
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Data.Stats.Aus.TypeProviders.pdb
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\FSharp.Data.Stats.Aus.TypeProviders.xml
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Excel.pdb
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ExcelProvider.pdb
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\ExcelProvider.xml
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.pdb
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\HtmlAgilityPack.xml
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\packages\Newtonsoft.Json.xml
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FsLab.Journal.exe
-C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FsLab.Journal.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Data.Stats.Aus.Experiments.dll.config
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Data.Stats.Aus.Experiments.XML
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Data.Stats.Aus.Experiments.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Data.Stats.Aus.Experiments.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Deedle.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Deedle.RProvider.Plugin.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\DynamicInterop.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Foogle.Charts.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Charting.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Core.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Data.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Google.DataTable.Net.Wrapper.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\HttpClient.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\MathNet.Numerics.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\MathNet.Numerics.FSharp.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Newtonsoft.Json.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\RDotNet.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\RDotNet.FSharp.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\RDotNet.NativeLibrary.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\RProvider.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\RProvider.Runtime.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\XPlot.GoogleCharts.Deedle.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\XPlot.GoogleCharts.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\XPlot.Plotly.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Deedle.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Deedle.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Deedle.RProvider.Plugin.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\DynamicInterop.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Foogle.Charts.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Foogle.Charts.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Charting.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Charting.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Core.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Data.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Data.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\MathNet.Numerics.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\MathNet.Numerics.FSharp.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Newtonsoft.Json.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\RDotNet.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\RDotNet.FSharp.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\RDotNet.NativeLibrary.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\RProvider.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\RProvider.Runtime.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\XPlot.GoogleCharts.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\XPlot.GoogleCharts.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\XPlot.GoogleCharts.Deedle.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\XPlot.GoogleCharts.Deedle.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\XPlot.Plotly.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\XPlot.Plotly.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FSharp.Data.Stats.Aus.Experiments.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FSharp.Data.Stats.Aus.Experiments.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Excel.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\ExcelProvider.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Data.Stats.Aus.TypeProviders.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Data.Stats.Aus.TypeProviders.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\FSharp.Data.Stats.Aus.TypeProviders.xml
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\Excel.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\ExcelProvider.pdb
+C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\bin\Debug\ExcelProvider.xml
 C:\Users\stuart\Documents\GitHub\FSharp.Data.Stats.Aus\FSharp.Data.Stats.Aus.Experiments\obj\Debug\FSharp.Data.Stats.Aus.Experiments.fsprojResolveAssemblyReference.cache
