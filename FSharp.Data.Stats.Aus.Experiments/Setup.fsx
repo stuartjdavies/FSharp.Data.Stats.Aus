@@ -1,4 +1,4 @@
-﻿#load "packages/FsLab/FsLab.fsx"
+﻿#load "../packages/FsLab.0.3.5/FsLab.fsx"
 #r @"..\packages\ExcelProvider.0.1.2\lib\net40\ExcelProvider.dll"
 #r @"..\FSharp.Data.Stats.Aus.TypeProviders\bin\Debug\FSharp.Data.Stats.Aus.TypeProviders.dll"
 //#load "../packages/XPlot.GoogleCharts.1.1.6/XPlot.GoogleCharts.fsx"
