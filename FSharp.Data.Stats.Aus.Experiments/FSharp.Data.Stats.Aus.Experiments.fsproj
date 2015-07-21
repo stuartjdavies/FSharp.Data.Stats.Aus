@@ -82,6 +82,7 @@
     <None Include="UnemploymentTrends.fsx" />
     <None Include="WestpackStockPriceChanges.fsx" />
     <None Include="WorldPoplutationGrowth.fsx" />
+    <None Include="WriteIndexPage.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Deedle">
