@@ -53,8 +53,8 @@
     <None Include="ASX.fsx" />
     <None Include="VicMicroBreweries.fsx" />
     <None Include="RBAExchangeRates.fsx" />
-    <None Include="WorldPopluationStats.fsx" />
     <None Include="AusBankReport.fsx" />
+    <None Include="WorldPopluationStats.fsx" />
     <None Include="WriteIndexPage.fsx" />
     <None Include="packages.config" />
     <Content Include="Google.DataTable.Net.Wrapper.XML" />
