@@ -34,23 +34,23 @@ let rs = [us; eur; gps]
          |> Chart.Line
          |> Chart.WithOptions  (Options ( curveType = "function", 
                                           legend = Legend(position = "bottom")))
-         |> Chart.WithLabels ["USD"; "EUR"; "GDP"] |> (fun c -> c.InlineHtml)
+         |> Chart.WithLabels ["USD"; "EUR"; "GDP"] 
 
 let ps = [commodityPricesAus; baseMetalPricesAus]
          |> Chart.Line
          |> Chart.WithOptions  (Options (curveType = "function", 
                                               legend = Legend(position = "bottom") ))
-         |> Chart.WithLabels ["Commodity prices in Aus$"; "Base metals prices in A$"] |> (fun p -> p.InlineHtml)
+         |> Chart.WithLabels ["Commodity prices in Aus$"; "Base metals prices in A$"] 
 
-Report [ Title "Australian Exchange Rates"
-         TopHeader("Australian Exchange Rates", "")                  
-         Subheading "Introduction"
-         Paragraph "Summary of Australian exchange rates"
-         Subheading "Key Points"
-         ItemList [ "This year the dollar has been decreasing"; "The australian dollar is still high" ]
-         Subheading "Exchange Rates - Daily - 2014 to Current - F11.1"
-         RGoogleChart rs
-         Subheading "Commodity & metal prices "
-         RGoogleChart ps ]
-|> DataAnalysisReport.create 
-|> (fun h -> File.WriteAllText("c:\\temp\\RBAExchangeRates.htm", h))                 
+[ Title "Australian Exchange Rates"
+  TopHeader("Australian Exchange Rates", "")                  
+  H2 "Introduction"
+  P "Summary of Australian exchange rates"
+  H2 "Key Points"
+  List [ "This year the dollar has been decreasing"; "The australian dollar is still high" ]
+  H2 "Exchange Rates - Daily - 2014 to Current - F11.1"
+  XPlotGoogleChart rs
+  H2 "Commodity & metal prices "
+  XPlotGoogleChart ps ]
+|> SimpleReport.toHtml
+|> (fun h -> File.WriteAllText((sprintf "%s\\website\\RBAExchangeRates.htm" __SOURCE_DIRECTORY__), h))                 

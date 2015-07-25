@@ -11,6 +11,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Data.Stats.Aus.AEMO"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Data.Stats.Aus.Experiments", "FSharp.Data.Stats.Aus.Experiments\FSharp.Data.Stats.Aus.Experiments.fsproj", "{A5F73605-FEF0-45D0-AC0B-51C4CBB95C3D}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Data.Stats.Aus.Reports", "FSharp.Data.Stats.Aus.Reports\FSharp.Data.Stats.Aus.Reports.fsproj", "{6E6E5A4E-E49B-4203-B986-9C74DE90F0EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A5F73605-FEF0-45D0-AC0B-51C4CBB95C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5F73605-FEF0-45D0-AC0B-51C4CBB95C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5F73605-FEF0-45D0-AC0B-51C4CBB95C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E6E5A4E-E49B-4203-B986-9C74DE90F0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E6E5A4E-E49B-4203-B986-9C74DE90F0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E6E5A4E-E49B-4203-B986-9C74DE90F0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E6E5A4E-E49B-4203-B986-9C74DE90F0EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -70,19 +70,12 @@
     <None Include="Debt.fsx" />
     <None Include="Deficit.fsx" />
     <None Include="GDPTrends.fsx" />
-    <None Include="ASX.fsx" />
-    <None Include="VicMicroBreweries.fsx">
-      <SubType>
-      </SubType>
-    </None>
-    <None Include="RBAExchangeRates.fsx" />
     <None Include="SeekAds.fsx" />
     <None Include="StGeorgeMelbourneBank.fsx" />
     <None Include="Tutorial.fsx" />
     <None Include="UnemploymentTrends.fsx" />
     <None Include="WestpackStockPriceChanges.fsx" />
     <None Include="WorldPoplutationGrowth.fsx" />
-    <None Include="WriteIndexPage.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Deedle">

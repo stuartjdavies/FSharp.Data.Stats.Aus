@@ -8,7 +8,7 @@ open System.Linq
 open System.Collections.Generic
 open System.Net
 open FSharp.Data
-open FSharp.Charting
+open XPlot.GoogleCharts
 open System.Text.RegularExpressions
 open HtmlAgilityPack
 open Setup
@@ -16,7 +16,7 @@ open Deedle
 open System.Diagnostics
 open Microsoft.FSharp.Linq
 open Microsoft.Office.Interop.Excel
-
+open Setup
 
 let ASX_DATA_DIR = __SOURCE_DIRECTORY__ + "\\Data\\ASX\\"
 let DATA_DIR = __SOURCE_DIRECTORY__ + "\\Data\\ASX\\"
@@ -42,7 +42,7 @@ let downloadCompanyData (codes : ASXCompany array) =
                                                                  File.WriteAllText(fileName, data)
                                                                  //printfn "Written file: i - %d - code %s FileName - %s" (i + 1) code fileName 
                                                                with 
-                                                               | ex -> printfn "Exception code - %d, %s" i code)
+                                                               | ex -> printfn "Exception code - %d, %s, %s" i code ex.Message)
                                                                                                                                                               
 
 let toStockItem asxCode (line: string) = line.Split(',')
@@ -83,36 +83,6 @@ do
                                                      |> downloadCompanyData |> ignore
                                                   printfn "Downloaded batch %d" batch)    
                                                                                                                                                                                                                    
-///
-/// Test Array.Parallel vs Array.map
-///
-do                         
-     let fileCount = Directory.GetFiles(ASX_DATA_DIR).Length
-                                                                                               
-     let sw1 = new Stopwatch()
-     sw1.Start()
-     let numberOfStocksRead = Directory.GetFiles(ASX_DATA_DIR) 
-                              |> Array.mapi (fun i (fileName : string) -> let code = getASXCodeFromFileName fileName 
-                                                                          printfn "Processed %s, %d" code i
-                                                                          (getStockHistory code fileName).Length)                                 
-                              |> Array.sum
-
-     sw1.Stop()         
-                                                                                               
-     let sw2 = new Stopwatch()
-     sw2.Start()
-     let numberOfStocksRead2 = Directory.GetFiles(ASX_DATA_DIR) 
-                               |> Array.Parallel.mapi (fun i (fileName : string) -> let code = getASXCodeFromFileName fileName
-                                                                                    printfn "Processed %d" i
-                                                                                    File.ReadLines(fileName).ToArray().[1..]
-                                                                                    |> Array.Parallel.map(fun item -> toStockItem code item)
-                                                                                    |> (fun items -> items.Length))                                 
-                               |> Array.sum
-
-     sw2.Stop()         
-     printfn "Seq Total minutes elapsed  %.2f, Files - %d numberOfStocks %d" sw1.Elapsed.TotalSeconds fileCount numberOfStocksRead
-     printfn "Parallel Total minutes elapsed  %.2f, Files - %d numberOfStocks %d" sw2.Elapsed.TotalSeconds fileCount numberOfStocksRead2
-     ()
 
 let stocksOrderedByClosePrice = Directory.GetFiles(ASX_DATA_DIR) 
                                 |> Array.mapi (fun i (fileName : string) -> let code = getASXCodeFromFileName fileName
@@ -124,87 +94,8 @@ let stocks = stocksOrderedByClosePrice |> Array.map(fun item -> printfn "Process
                                                                 let m = ausCompanies |> Array.find(fun c -> c.ASXCode=item.ASXCode)
                                                                 (m.ASXCode, m.CompanyName, m.GICSIndustryGroup, item.Close))
 
-//
-// Get higest top 100 company prices
-//
-do
-    printfn "Top companies industry"
-    printfn ""
-    stocks.[0..100] |> Array.iteri(fun i (code, name, group, close) -> printfn "%d. %s, %s, %s, %.2f" (i + 1) code name group close)
-    ()
-
-//
-// Get number of companies by industry
-//
-do
-    printfn "Number of companies by industry"
-    printfn ""
-
-    stocks |> Seq.groupBy(fun (_,_,g,_) -> g) 
-           |> Seq.map(fun (g, xs) -> g, xs |> Seq.length)
-           |> Seq.sortBy(fun (_, l) -> -l)
-           |> Seq.iteri(fun i (g, l) -> printfn "%d. %s %d" (i + 1) (g.Replace("\r","")) l)
-    ()
-
-//
-// Get average stock prices by industry
-//
-do
-    printfn "Average stock prices by industry"
-    printfn ""
-
-    stocks |> Seq.groupBy(fun (_,_,g,_) -> g) 
-           |> Seq.map(fun (g, items) -> g, items |> Seq.averageBy(fun (_,_,_,close) -> close))
-           |> Seq.sortBy(fun (_, l) -> -l)
-           |> Seq.iteri(fun i (g, l) -> printfn "%d. %s %0.2f" (i + 1) (g.Replace("\r","")) l)
-
-//
-// Get List of closing prices for Pharmaceutical & Biotechnology companies
-//
-do
-    printfn "List of closing prices for Pharmaceuticals & Biotechnology"
-    printfn ""
-    stocks |> Array.filter(fun (_,_,g,_) -> g = "Pharmaceuticals & Biotechnology") 
-           |> Array.sortBy(fun (_,_,_,close) -> -close)
-           |> Array.iteri(fun i (code, name, group, close) -> printfn "%d. %s, %s, %s, %.2f" (i + 1) code name group close)
-    ()
-
-// 
-// Get list of household and personal products
-//
-do
-    printfn "Insurance"
-    printfn ""
-    stocks |> Array.filter(fun (_,_,g,_) -> g = "Insurance") 
-           |> Array.sortBy(fun (_,_,_,close) -> -close)
-           |> Array.iteri(fun i (code, name, group, close) -> printfn "%d. %s, %s, %s, %.2f" (i + 1) code name group close)
-    ()
-
-//
-// Find the biggest increase in last 30 days                             
-//
-do
-    printfn "Household & Personal Products"
-    printfn ""
-    stocks |> Array.filter(fun (_,_,g,_) -> g = "Household & Personal Products") 
-           |> Array.sortBy(fun (_,_,_,close) -> -close)
-           |> Array.iteri(fun i (code, name, group, close) -> printfn "%d. %s, %s, %s, %.2f" (i + 1) code name group close)
-    ()
-
-do
-    printfn "Food"
-    printfn ""
-    stocks |> Array.filter(fun (_,_,g,_) -> g = "Food") 
-           |> Array.sortBy(fun (_,_,_,close) -> -close)
-           |> Array.iteri(fun i (code, name, group, close) -> printfn "%d. %s, %s, %s, %.2f" (i + 1) code name group close)
-    ()
-
-//
-// Find the greatest closing price changes in the last 2 months 
-//
-do  
-    let priceChanges = Directory.GetFiles(ASX_DATA_DIR) 
-                       |> Array.mapi (fun i (fileName : string) -> 
+let priceChanges = Directory.GetFiles(ASX_DATA_DIR) 
+                   |> Array.mapi (fun i (fileName : string) -> 
                                             let code = getASXCodeFromFileName fileName
                                             let rows = File.ReadLines(fileName).ToArray().[1..] |> Array.map (fun item -> toStockItem code item)                                                      
                                             printfn "Processed %d" i   
@@ -212,51 +103,14 @@ do
                                                 Some (code, rows.[0].Close, rows.[59].Close, rows.[0].Close - rows.[59].Close)
                                             else
                                                 None)
-                       |> Array.filter(fun row -> match row with
-                                                  | Some _ -> true
-                                                  | None -> false)
-                       |> Array.map(fun row -> row.Value)
-                       |> Array.sortBy(fun (_, _, _, diff) -> -diff)      
-    
-    // Find the largest increase in the last 2 months    
-    do 
-        priceChanges
-        |> Array.map (fun (c,c1,c2,diff) -> let m = ausCompanies |> Array.find(fun item -> item.ASXCode=c)
-                                            (m.ASXCode, m.CompanyName, m.GICSIndustryGroup, c1,c2,diff))
-        |> Array.iteri (fun i (c, n, g, c1, c2, diff) -> let increase = ((c1 - c2) / c1) * 100.0f
-                                                         printfn "%d. %s %s %s %.2f %.2f %.2f  %.2f percent" (i + 1) c n g c1 c2 diff increase)
-        ()
+                   |> Array.filter(fun row -> match row with
+                                                | Some _ -> true
+                                                | None -> false)
+                   |> Array.map(fun row -> row.Value)
+                   |> Array.sortBy(fun (_, _, _, diff) -> -diff)    
 
-    // Find the largest increases in the last 2 months for Software & Services   
-    do
-        priceChanges   
-        |> Array.map (fun (c,c1,c2,diff) -> let m = ausCompanies |> Array.find(fun item -> item.ASXCode=c)
-                                            (m.ASXCode, m.CompanyName, m.GICSIndustryGroup, c1,c2,diff))
-        |> Array.filter (fun (_, _, g, _, _, _) -> g = "Software & Services")        
-        |> Array.iteri (fun i (c, n, g, c1, c2, diff) -> let increase = ((c1 - c2) / c1) * 100.0f
-                                                         printfn "%d. %s %s %s %.2f %.2f %.2f  %.2f percent" (i + 1) c n g c1 c2 diff increase)
-        ()
 
-    // Find the largest increases in the last 2 months for Pharmaceuticals & Biotechnology
-    do
-        priceChanges   
-        |> Array.map (fun (c,c1,c2,diff) -> let m = ausCompanies |> Array.find(fun item -> item.ASXCode=c)
-                                            (m.ASXCode, m.CompanyName, m.GICSIndustryGroup, c1,c2,diff))
-        |> Array.filter (fun (_, _, g, _, _, _) -> g = "Pharmaceuticals & Biotechnology")        
-        |> Array.iteri (fun i (c, n, g, c1, c2, diff) -> let increase = ((c1 - c2) / c1) * 100.0f
-                                                         printfn "%d. %s %s %s %.2f %.2f %.2f  %.2f percent" (i + 1) c n g c1 c2 diff increase)
-        ()
-
-    // Find the largest increases in the last 2 months for Pharmaceuticals & Biotechnology
-    do
-        priceChanges   
-        |> Array.map (fun (c,c1,c2,diff) -> let m = ausCompanies |> Array.find(fun item -> item.ASXCode=c)
-                                            (m.ASXCode, m.CompanyName, m.GICSIndustryGroup, c1,c2,diff))
-        |> Array.filter (fun (_, _, g, _, _, _) -> g = "Software & Services")        
-        |> Array.iteri (fun i (c, n, g, c1, c2, diff) -> let increase = ((c1 - c2) / c1) * 100.0f
-                                                         printfn "%d. %s %s %s %.2f %.2f %.2f  %.2f percent" (i + 1) c n g c1 c2 diff increase)
-        ()
-
+        
 // 
 // Table Columns 
 // 1. ASXCode
@@ -350,8 +204,7 @@ let getStockHistoryStats (c : ASXCompany) =
                                       AsxDetailsUrl = (sprintf "http://www.asx.com.au/asx/research/company.do#!/%s/details" c.ASXCode);
                                       YahooDetailsUrl = yahooUrl; 
                                       HeadOfficeState = state; }
-                
-                                 
+                                                 
 let writeSummaryTableToExcel (items : ASXSummaryTableItem array) =      
         let app = new ApplicationClass(Visible = true) 
         let workbook = app.Workbooks.Add(XlWBATemplate.xlWBATWorksheet) 
@@ -396,10 +249,24 @@ let writeSummaryTableToExcel (items : ASXSummaryTableItem array) =
         worksheet.ListObjects.[  "ASXSummary" ].TableStyle <- "TableStyleMedium2";
         worksheet.Range("A1", "X1").Value2 <- columnText
         range.Columns.AutoFit() |> ignore
+        worksheet.SaveAs((sprintf "%s\\website\\ASXSummary.xls" __SOURCE_DIRECTORY__)) |> ignore
+        
                                                                                                                                    
 let table = ausCompanies |> Array.filter(fun item -> File.Exists( sprintf "%s%s.csv" ASX_DATA_DIR item.ASXCode) = true)
                          |> Array.Parallel.map getStockHistoryStats                                                
                          |> Array.sortBy(fun item -> -item.LastClose)                                                  
      
-     
-table |> writeSummaryTableToExcel |> ignore                                                  
+table |> writeSummaryTableToExcel |> ignore      
+
+[ Title "Australian ASX Summary"
+  TopHeader("Australian ASX Summary","")
+  H2 "Introduction"
+  P "Contains a brief analysis of all stocks on the asx"
+  H2 "Key Points"         
+  List [ "None at the moment" ]         
+  H2 "Downloads"
+  Link("ASX Data summary","website\\ASXSummary.xls\"")
+  H2 "Australian data file" ]
+|> SimpleReport.toHtml
+|> (fun h -> File.WriteAllText((sprintf "%s\\website\\ASXSummary.htm" __SOURCE_DIRECTORY__), h))                 
+                                           

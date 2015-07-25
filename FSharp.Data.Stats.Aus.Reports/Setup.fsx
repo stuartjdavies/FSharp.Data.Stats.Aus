@@ -13,6 +13,13 @@
 
 open System
 open XPlot.GoogleCharts
+open System.IO
+
+if Directory.Exists(__SOURCE_DIRECTORY__ + "\\Data") = false then
+    Directory.CreateDirectory(__SOURCE_DIRECTORY__ + "\\Data") |> ignore
+
+if Directory.Exists(__SOURCE_DIRECTORY__ + "\\Website") = false then
+    Directory.CreateDirectory(__SOURCE_DIRECTORY__ + "\\Website") |> ignore
 
 type SimpleReportItem =      
      | TopHeader of header : string * textbelow : string
