@@ -35,22 +35,23 @@ let rs = [us; eur; gps]
          |> Chart.WithOptions  (Options ( curveType = "function", 
                                           legend = Legend(position = "bottom")))
          |> Chart.WithLabels ["USD"; "EUR"; "GDP"] 
+         |> Chart.WithTitle("Exchange Rates - Daily - 2014 to Current - F11.1")
 
 let ps = [commodityPricesAus; baseMetalPricesAus]
          |> Chart.Line
          |> Chart.WithOptions  (Options (curveType = "function", 
                                               legend = Legend(position = "bottom") ))
          |> Chart.WithLabels ["Commodity prices in Aus$"; "Base metals prices in A$"] 
+         |> Chart.WithTitle("Commodity & metal prices")
 
 [ Title "Australian Exchange Rates"
-  TopHeader("Australian Exchange Rates", "")                  
+  H1 "Australian Exchange Rates"                  
   H2 "Introduction"
   P "Summary of Australian exchange rates"
   H2 "Key Points"
   List [ "This year the dollar has been decreasing"; "The australian dollar is still high" ]
-  H2 "Exchange Rates - Daily - 2014 to Current - F11.1"
+  H2 "Graphs"
   XPlotGoogleChart rs
-  H2 "Commodity & metal prices "
   XPlotGoogleChart ps ]
 |> SimpleReport.toHtml
 |> (fun h -> File.WriteAllText((sprintf "%s\\website\\RBAExchangeRates.htm" __SOURCE_DIRECTORY__), h))                 

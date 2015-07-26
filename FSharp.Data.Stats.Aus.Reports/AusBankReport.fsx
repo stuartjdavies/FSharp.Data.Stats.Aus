@@ -22,11 +22,11 @@ let stockChart = seq { for s in stocks -> async { return (fst(s),
                          |> Async.RunSynchronously
                          |> (fun xs -> let f = xs |> Seq.map fst
                                        let s = xs |> Seq.map snd
-                                       s |> Chart.Line |> Chart.WithLabels f)
+                                       s |> Chart.Line |> Chart.WithLabels f |> Chart.WithTitle("Graph of bank closing prices from 1988 to present"))
                          
 
 [ Title "Australian Bank Stock Prices"
-  TopHeader("Australian Bank Stock Prices", "")                  
+  H1 "Australian Bank Stock Prices"
   H2 "Introduction"
   P "This report shows how Australian Bank Stock Prices have climbed in recent history"
   H2 "Key Points"

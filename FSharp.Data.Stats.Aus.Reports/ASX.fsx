@@ -258,13 +258,23 @@ let table = ausCompanies |> Array.filter(fun item -> File.Exists( sprintf "%s%s.
      
 table |> writeSummaryTableToExcel |> ignore      
 
+let ``Number of companies by industry``() = 
+        stocks |> Seq.groupBy(fun (_,_,g,_) -> g) 
+               |> Seq.map(fun (g, xs) -> g, xs |> Seq.length)
+               |> Seq.sortBy(fun (_, l) -> -l) 
+               |> Seq.toArray  
+                                  
+
 [ Title "Australian ASX Summary"
-  TopHeader("Australian ASX Summary","")
+  H1("Australian ASX Summary")
   H2 "Introduction"
   P "Contains a brief analysis of all stocks on the asx"
   H2 "Key Points"         
-  List [ "None at the moment" ]         
-  H2 "Downloads"
+  List [ "None at the moment" ] 
+  H2 "Graphs"        
+  XPlotGoogleChart(``Number of companies by industry``() |> Chart.Pie |> Chart.WithTitle("Pie graph of the number of companies per sector") |> Chart.WithLegend(true) )
+  XPlotGoogleChart(``Number of companies by industry``() |> Chart.Bar |> Chart.WithTitle( "Bar graph of the number of companies per sector"))
+  H2 "Data"
   Link("ASX Data summary","website\\ASXSummary.xls\"")
   H2 "Australian data file" ]
 |> SimpleReport.toHtml

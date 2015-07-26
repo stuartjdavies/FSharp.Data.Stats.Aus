@@ -61,6 +61,10 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK">
+      <HintPath>..\packages\AWSSDK.2.3.48.0\lib\net45\AWSSDK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Deedle">
       <HintPath>..\packages\Deedle.1.2.2\lib\net40\Deedle.dll</HintPath>
       <Private>True</Private>

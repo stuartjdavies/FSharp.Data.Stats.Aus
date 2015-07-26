@@ -23,6 +23,7 @@ if Directory.Exists(__SOURCE_DIRECTORY__ + "\\Website") = false then
 
 type SimpleReportItem =      
      | TopHeader of header : string * textbelow : string
+     | H1 of string
      | H2 of string      
      | Table of headers : string list * data : string list list
      | List of string list
@@ -127,10 +128,11 @@ module SimpleReport  =
             let renderBody (items : SimpleReportItem list) =                                       
                     items |> List.fold(fun acc item -> match item with                                                                                                
                                                        | TopHeader(h,st) -> (renderTopHeader h st)::acc
-                                                       | Header h -> (sprintf "<h1>%s</h1>\r" h)::acc                                       
+                                                       | H1 h -> (sprintf "<h1>%s</h1>\r" h)::acc                                       
                                                        | H2 h -> (sprintf "<h2>%s</h2>\r" h)::acc   
                                                        | P h -> (sprintf "<p>%s</p>\r" h)::acc  
                                                        | LinkList items -> (renderLinkList items)::acc
+                                                       | Link(t, href) -> (sprintf "<a href=\"%s\">%s</a>\r" href t)::acc
                                                        | List items -> (renderItemList items)::acc
                                                        | Table(hs, rs) -> renderDataTable(hs, rs)::acc                                                      
                                                        | XPlotGoogleChart c -> c.Html::acc                                                                                                           

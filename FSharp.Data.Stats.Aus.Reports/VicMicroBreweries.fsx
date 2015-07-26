@@ -20,16 +20,23 @@ let getGeoLatAndLng address =
         (double) r.Results.[0].Geometry.Location.Lat, (double) r.Results.[0].Geometry.Location.Lng
 let items = MicroBreweries.Load("http://data.gov.au/storage/f/2013-05-12T212958/tmpDKnZGomicrobreweries.csv").Rows |> Seq.toArray
 
-//printfn "List of Micro Breweries in Victoria"
-//items |> Array.iteri(fun i item -> printfn "%d. %s" (i + 1) item.Name)
-let locations = items |> Array.map(fun item -> item.Name, sprintf "%s %s VIC" item.Address item.``Town/Suburb``)
-                      |> Array.map(fun (n, a) -> System.Threading.Thread.Sleep(200)
-                                                 let lat, lng = getGeoLatAndLng a
-                                                 lat, lng, n)
-                      |> Chart.Map
+
+let getLocationInfo (item : MicroBreweries.Row) = item.Name
+//let getLocationInfo (item : MicroBreweries.Row) =
+//        [ sprintf "<div><h4>%s</h4>" item.Name
+//          sprintf "<p></p>"          
+//          sprintf "<p style=\"text-align:left\">%s %sVIC<br>" item.Address item.``Town/Suburb``          
+//          sprintf "%s<br>" item.Website
+//          sprintf "%s<br>" item.Email       
+//          sprintf "</p></div>" ]  |> (fun xs -> String.Join("\r", xs))                   
+
+let locations = items |> Array.map(fun item -> System.Threading.Thread.Sleep(200)
+                                               let lat, lng = getGeoLatAndLng (sprintf "%s %s VIC" item.Address item.``Town/Suburb``)
+                                               lat, lng, getLocationInfo item)
+                      |> Chart.Map 
                              
 [ Title "Victorian Micro Breweries Data Analysis Report"
-  TopHeader("Victorian Micro Beer breweries", "")                  
+  H1 "Victorian Micro Beer breweries"            
   H2 "Introduction"
   P "This is all the microbrewries in Victoria"
   H2 "Key Points"
